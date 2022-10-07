@@ -25,9 +25,9 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <!-- <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li> -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">직군별 찾아보기</a>
+                            <a class="nav-link dropdown-toggle" style="margin-right: 40px;" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">직군별 찾아보기</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">직군전체</a></li>
+                                <li><a class="dropdown-item" style = "font-weight: bold;" href="#!">직군전체</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="#!">관리</a></li>
                                 <li><a class="dropdown-item" href="#!">기계</a></li>
@@ -45,8 +45,7 @@
                         <!-- <a class="nav-link active" aria-current="page" href="#!">마이페이지</a> -->
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-flag-fill me-1"></i>
-                            찜한 공고
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            마이페이지
                         </button>
                     </form>
                 </div>
@@ -64,24 +63,50 @@
             </div>
         </header>
         <!-- Section-->
-        <section class="py-5">
-
+        <section class="py-3">
             <div class="container px-4 px-lg-5 mt-5">
-                <form class="form-inline my-2 my-lg-0">
-                    <h3>인기있는 태그</h3>
+                
+                <div>
+                    <p class = text-center style="font-weight:bold; font-size:x-large;">인기있는 태그 : </p>
 
-                    <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi bi-search"></i>
-                        #전기기사
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">2</span>
+                    <button class="btn btn-outline-dark" style="background-color: #AAA; margin-right: 10px" type="submit">
+                        <i class="bi bi-tag-fill"></i>
+                        전기기사
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">514</span>
                     </button>
-                    <input class="form-control mr-sm-2" type="text" placeholder="키워드를 검색해보세요" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-2" type="submit">
+                    <button class="btn btn-outline-dark" style="background-color: #AAA; margin-right: 10px" type="submit">
+                        <i class="bi bi-tag-fill"></i>
+                        시설관리
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">472</span>
+                    </button>
+                    <button class="btn btn-outline-dark" style="background-color: #AAA; margin-right: 10px" type="submit">
+                        <i class="bi bi-tag-fill"></i>
+                        안전관리
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">390</span>
+                    </button>
+                    <button class="btn btn-outline-dark" style="background-color: #AAA;" type="submit">
+                        <i class="bi bi-tag-fill"></i>
+                        관리사무
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">675</span>
+                    </button>
+                </div><br>
+
+                <form class="form-inline my-2 my-lg-0" style="margin-bottom: 5px">
+                    <input class="form-control mr-sm-3" type="text" placeholder="키워드를 검색해보세요" aria-label="Search">
+                    <div class="pt-1 mb-4">
+                        <button class="btn btn-dark btn-lg btn-block" type="button">
+                            <i class="bi bi-search"> 검색</i>
+                        </button>
+                    </div>
+                    <!-- <button class="btn btn-outline-success my-2 my-sm-2" style="background-color: yellowgreen; color: black;" type="submit">
                         <i class="bi bi-search"> 검색</i>
-                    </button>
+                    </button> -->
                 </form>
-                <hr>
-                <h2>지금 핫한<span><img src="https://cdn-icons-png.flaticon.com/512/740/740842.png" style = 'max-height: 32px; width: auto'></span> 채용공고</h2>
+            </div>
+        </section>
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <h2 class="text-center">지금 핫한<span><img src="https://cdn-icons-png.flaticon.com/512/740/740842.png" style = 'max-height: 32px; width: auto'></span> 채용공고</h2>
                 <hr>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
@@ -113,7 +138,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Hot badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
+                            <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
                             <!-- Product image-->
                             <img class="card-img-top" src="./img/평화아파트.JPG" alt="..." />
                             <!-- Product details-->
@@ -141,8 +166,6 @@
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <!-- Hot badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
                             <!-- Product image-->
                             <img class="card-img-top" src="./img/부산굿데이.JPG" alt="..." />
                             <!-- Product details-->
@@ -158,7 +181,7 @@
                                         <div class="bi-star"></div>
                                     </div>
                                     <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">관리크루 채용 (경력 2~5년)</span>
+                                    <span class="text-muted text-decoration-line-through">관리크루 채용 (경력 2~5년)</span><br>
                                     <p class="fw-bolder" style="color: red">마감된 공고입니다.</p>
                                 </div>
                             </div>
@@ -198,7 +221,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Hot badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
+                            <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
                             <!-- Product image-->
                             <img class="card-img-top" src="./img/스타벅스경주.JPG" alt="..." />
                             <!-- Product details-->
@@ -252,7 +275,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Hot badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
+                            <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
                             <!-- Product image-->
                             <img class="card-img-top" src="./img/DMC파크뷰자이.JPG" alt="..." />
                             <!-- Product details-->
@@ -310,17 +333,14 @@
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
+            <div class = "text-center container" style="margin-bottom: 30px">
+                <p class="text-center text-white" style="font-size: large; margin-right: 150px"><a class="m-0" href="#!">회사소개</a></p>
+                <p class="text-center text-white" style="font-size: large; margin-right: 150px"><a class="m-0" href="#!">FAQ</a></p>
+                <p class="text-center text-white" style="font-size: large;"><a class="m-0" href="#!">문의하기</a></p>
+            </div><br>
             <div class="text-center container">
-                <div class = "container">
-                    <ul>
-                        <li class="text-center text-white"><a class="m-0" href="#!">회사소개</a></li>
-                        <li class="text-center text-white"><a class="m-0" href="#!">FAQ</a></li>
-                        <li class="text-center text-white"><a class="m-0" href="#!">문의하기</a></li>
-                    </ul>
-                </div>
-                <br>
                 <div class="container">
-                    <div class="container"><p class="m-0 text-center text-white">&copy; TownManager, Inc. 2022 All rights reserved.</p></div>
+                    <div class="container"><li class="m-0 text-center text-white" style='list-style-type: none'>&copy; TownManager, Inc. 2022 All rights reserved.</li></div>
                 </div>
             </div>
         </footer>
