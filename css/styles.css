@@ -3947,6 +3947,7 @@ textarea.form-control-lg {
 
 .nav-link {
   display: block;
+  font-size: large;
   padding: 0.5rem 1rem;
   color: #0d6efd;
   text-decoration: none;
@@ -4522,8 +4523,10 @@ textarea.form-control-lg {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
   box-shadow: 10px 5px 5px #CCC;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .mb-5:hover div{
@@ -11307,99 +11310,118 @@ textarea.form-control-lg {
   }
 }
 
-#UICard1{
-  position: absolute;
-  width: 240px;
-  height: 400px;
-  left: 125px;
-  top: 122px;
-
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(204, 204, 204, 0.5);
-  border-radius: 10px;
+/* slide */
+.slider {
+  max-width: 2000px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
-#UICard2{
+.slide {
   position: absolute;
-  width: 240px;
-  height: 400px;
-  left: 442px;
-  top: 122px;
+  top: 0;
+  width: 1200px;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(204, 204, 204, 0.5);
-  border-radius: 10px;
+  transition: transform 1s;
 }
 
-#UICard3{
-  position: absolute;
-  width: 240px;
-  height: 400px;
-  left: 759px;
-  top: 122px;
-  
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(204, 204, 204, 0.5);
-  border-radius: 10px;
+.slide > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-#UICard4{
+.slider__btn {
   position: absolute;
-  width: 240px;
-  height: 400px;
-  left: 1076px;
-  top: 125px;
-
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(204, 204, 204, 0.5);
-  border-radius: 10px;
+  top: 60%;
+  z-index: 10;
+  border: none;
+  background-color: black;
+  font-family: inherit;
+  color: white;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  font-size: 1.25rem;
+  cursor: pointer;
 }
 
-
-#UICard5{
-  position: absolute;
-  width: 240px;
-  height: 400px;
-  left: 125px;
-  top: 565px;
-
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(204, 204, 204, 0.5);
-  border-radius: 10px;
+.slider__btn--left {
+  left: 4%;
+  transform: translate(-50%, -50%);
 }
 
-#UICard6{
-  position: absolute;
-  width: 240px;
-  height: 400px;
-  left: 442px;
-  top: 565px;
-
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(204, 204, 204, 0.5);
-  border-radius: 10px;
+.slider__btn--right {
+  right: 4%;
+  transform: translate(50%, -50%);
 }
 
-#UICard7{
+.dots {
   position: absolute;
-  width: 240px;
-  height: 400px;
-  left: 759px;
-  top: 565px;
-
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(204, 204, 204, 0.5);
-  border-radius: 10px;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
 }
 
-#UICard8{
-  position: absolute;
-  width: 240px;
-  height: 400px;
-  left: 1076px;
-  top: 568px;
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 0.5s;
 
-  background: #FFFFFF;
-  box-shadow: 0px 4px 30px rgba(204, 204, 204, 0.5);
-  border-radius: 10px;
+}
+
+.dots__dot:last-child {
+  margin: 0;
+}
+
+.dots__dot--active {
+  background-color: blue;
+  opacity: 1;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: #f1f1f1;
+  color: black;
 }
