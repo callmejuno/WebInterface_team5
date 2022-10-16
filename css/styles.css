@@ -11340,14 +11340,14 @@ textarea.form-control-lg {
 .slider__btn {
   position: absolute;
   top: 60%;
-  z-index: 10;
+  /* z-index: 10; */
   border: none;
   background-color: black;
   font-family: inherit;
   color: white;
   border-radius: 50%;
-  height: 55px;
-  width: 55px;
+  height: 57px;
+  width: 57px;
   font-size: 1.25rem;
   cursor: pointer;
 }
@@ -11363,9 +11363,9 @@ textarea.form-control-lg {
 }
 
 .dots {
-  position: absolute;
+  position:absolute;
   bottom: 5%;
-  left: 50%;
+  left: 55%;
   transform: translateX(-50%);
   display: flex;
 }
@@ -11385,7 +11385,7 @@ textarea.form-control-lg {
 }
 
 .dots__dot:last-child {
-  margin: 0;
+  margin: 1;
 }
 
 .dots__dot--active {
