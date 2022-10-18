@@ -7,24 +7,23 @@
         <meta name="author" content="" />
         <title>TownManager | 주거 및 환경 관리 전문가 구직 플랫폼</title>
         <!-- Favicon-->
-        <link rel="icon" href="./img/TownManager_logo.png" sizes="32x32"/>
+        <link rel="icon" href="./staticfiles/img/TownManager_logo.png" sizes="32x32"/>
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
-        <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">
-                    <img src = "./img/logo_long.png" style = 'max-height: 40px; width: auto'>
+                <a class="navbar-brand" href="./index.html">
+                    <img src = "./staticfiles/img/logo_long.png" style = 'max-height: 40px; width: auto'>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <!-- <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li> -->
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown" style = "font-weight: bold;">
                             <a class="nav-link dropdown-toggle" style="margin-right: 40px;" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">직군별 찾아보기</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" style = "font-weight: bold;" href="#!">직군전체</a></li>
@@ -38,12 +37,31 @@
                                 <li><a class="dropdown-item" href="#!">경리</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#!">근처 구직정보</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!" id = 'drawer-opener' style = "font-weight: bold;">플랫폼소개</a>
+                        </li>
+                        <div class = 'drawer' style="margin-top: 10px; margin-bottom: 10px; border-top-left-radius: 20px; border-bottom-left-radius: 20px;">
+                            <h2 style="text-align:center;">플랫폼소개</h2>
+                            <hr>
+                            <ul class="px-4 px-lg-4 my-4">
+                                <li style="font-size:large">2021년 경비직을 비롯한 시설관리직군은 150만회에 달하는 계약이 체결되었습니다. 그러나 기존 채용 방식은 인맥 위주 채용, 등록 회비를 부과하는 협회 주도의 독점이 되고 있습니다.</li>
+                                <br>
+                                <li style="font-size:large">이에 해당 분야에서 사용자가 자신의 전문분야를 등록하고 적합한 공고를 무료로 찾아볼 수 있는 플랫폼을 만들었습니다.</li>
+                                <br>
+                                <li style="font-size:large">사용자와 구직자가 서로를 효율적으로 이어줄 수 있도록 타운매니저가 돕겠습니다.</li>
+                                <br>
+                                <button class="btn btn-outline-dark" id = 'drawer-opener-in-sideMenu' type="button">
+                                    <i class="bi-backspace-fill me-1" ></i>
+                                    뒤로가기
+                                </button>
+                            </ul>
+                        </div>
+            
+                        <script src="./js/sidemenu.js"></script>
                     </ul>
                     <form class="d-flex">
                         <a class="nav-link active" aria-current="page" href="login.html">로그인</a>
-                        <!-- <a class="nav-link active" aria-current="page" href="#!">마이페이지</a> -->
-                        <button class="btn btn-outline-dark" type="submit">
+                        <button type = "button" class="btn btn-outline-dark" onclick="location.href='./myPage.html'">
                             <i class="bi-flag-fill me-1"></i>
                             마이페이지
                         </button>
@@ -53,19 +71,19 @@
         </nav>
 
         <!-- Header-->
-        <header class="bg-dark py-5">
+        <header class="bg-dark py-2">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">타운매니저</h1>
                     <p class="lead fw-normal text-white-50 mb-0">주거 및 환경 관리 전문가 구직 플랫폼</p>
                 </div>
-           card </div>
+            </div>
         </header>
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 
-                <div>
+                <form class="form-inline my-2 my-lg-0" style="margin-bottom: 5px">
                     <p class = text-center style="font-weight:bold; font-size:x-large;">인기있는 태그 : </p>
 
                     <button class="btn btn-outline-dark" style="background-color: #AAA; margin-right: 10px" type="submit">
@@ -88,18 +106,15 @@
                         관리사무
                         <span class="badge bg-dark text-white ms-1 rounded-pill">675</span>
                     </button>
-                </div><br>
+                </form><br>
 
                 <form class="form-inline my-2 my-lg-0" style="margin-bottom: 5px">
-                    <input class="form-control mr-sm-3" type="text" placeholder="키워드를 검색해보세요" aria-label="Search">
-                    <div class="pt-1 mb-4">
-                        <button class="btn btn-dark btn-lg btn-block" type="button">
-                            <i class="bi bi-search""> 검색</i>
-                        </button>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="키워드로 검색해보세요" aria-label="Enter search term..." aria-describedby="button-search" />
+                            <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                        </div>
                     </div>
-                    <!-- <button class="btn btn-outline-success my-2 my-sm-2" style="background-color: yellowgreen; color: black;" type="submit">
-                        <i class="bi bi-search"> 검색</i>
-                    </button> -->
                 </form>
             </div>
         </section>
@@ -112,7 +127,7 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/금천구청.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/금천구청.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -131,7 +146,7 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="job_intro.html">상세보기</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="./job_intro.html">상세보기</a></div>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +155,7 @@
                                 <!-- Hot badge-->
                                 <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/평화아파트.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/평화아파트.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -167,7 +182,7 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/부산굿데이.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/부산굿데이.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -194,7 +209,7 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/동대문디자인플라자.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/동대문디자인플라자.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -225,7 +240,7 @@
                                 <!-- Hot badge-->
                                 <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/스타벅스경주.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/스타벅스경주.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -251,7 +266,7 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/라마다호텔.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/라마다호텔.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -279,7 +294,7 @@
                                 <!-- Hot badge-->
                                 <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/DMC파크뷰자이.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/DMC파크뷰자이.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -306,7 +321,7 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/종로타워.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/종로타워.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -335,7 +350,7 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/류근철컴플렉스.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/류근철컴플렉스.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -363,7 +378,7 @@
                                 <!-- Hot badge-->
                                 <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/영화의전당.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/영화의전당.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -389,7 +404,7 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/삼성창조캠퍼스.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/삼성창조캠퍼스.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -418,7 +433,7 @@
                                 <!-- Hot badge-->
                                 <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
                                 <!-- Product image-->
-                                <img class="card-img-top" src="./img/올림픽공원.JPG" alt="..." />
+                                <img class="card-img-top" src="./staticfiles/img/올림픽공원.JPG" alt="..." />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -453,7 +468,6 @@
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class = "text-center container" style="margin-bottom: 30px">
-                <p class="text-center text-white" style="font-size: large; margin-right: 150px"><a class="m-0" href="#!" id = 'drawer-opener'>플랫폼소개</a></p>
                 <p class="text-center text-white" style="font-size: large; margin-right: 150px"><a class="m-0" href="#!">FAQ</a></p>
                 <p class="text-center text-white" style="font-size: large;"><a class="m-0" href="#!">문의하기</a></p>
             </div><br>
@@ -462,67 +476,8 @@
                     <div class="container"><li class="m-0 text-center text-white" style='list-style-type: none'>&copy; TownManager, Inc. 2022 All rights reserved.</li></div>
                 </div>
             </div>
-            <div class = 'drawer'>
-                <h2>플랫폼소개</h2>
-                <ul class="px-4 px-lg-4 my-4">
-                    <li>2021년 경비직을 비롯한 시설관리직군은 150만회에 달하는 계약이 체결되었습니다. 그러나 기존 채용 방식은 인맥 위주 채용, 등록 회비를 부과하는 협회 주도의 독점이 되고 있습니다.</li>
-                    <br>
-                    <li>이에 해당 분야에서 사용자가 자신의 전문분야를 등록하고 적합한 공고를 무료로 찾아볼 수 있는 플랫폼을 만들었습니다.</li>
-                    <br>
-                    <li>사용자와 구직자가 서로를 효율적으로 이어줄 수 있도록 타운매니저가 돕겠습니다.</li>
-                </ul>
-                <button class="btn btn-outline-dark" id = 'drawer-opener-in-sideMenu' type="button">
-                    <i class="bi-backspace-fill me-1" ></i>
-                    뒤로가기
-                </button>
-            </div>
-            <script>
-                function Drawer(el, open = false){
-                    this.el = el;
-                    this.isOpen = open;
-                    Object.assign(this.el.style, {
-                        display: 'block',
-                        position: 'fixed',
-                        top: 0,
-                        bottom: 0,
-                        right: 0,
-                        width: '400px',
-                        padding: '10px',
-                        backgroundColor: 'white',
-                        opacity: 0.9,
-                        boxShadow: '0 0 36px 0 rgba(0, 0, 0, 0.1)',
-                        transition: 'all 0.4s ease-out',
-                    });
-                    (this.isOpen) ? this.open() : this.close();
-                }
-                Drawer.prototype.open = function(){
-                    this.isOpen = true;
-                    this.el.style.transform = 'translate(0px)';
-                }
-                Drawer.prototype.close = function(){
-                    this.isOpen = false;
-                    this.el.style.transform = 'translate(420px)';
-                }
 
-                const sideMenu = new Drawer(document.querySelector('.drawer'));
-                document.getElementById('drawer-opener')
-                    .addEventListener('click', e => {
-                        if (!sideMenu.isOpen){
-                            sideMenu.open();
-                        }else{
-                            sideMenu.close();
-                        }
-                    });
-                
-                document.getElementById('drawer-opener-in-sideMenu')
-                    .addEventListener('click', e => {
-                        if (!sideMenu.isOpen){
-                            sideMenu.open();
-                        }else{
-                            sideMenu.close();
-                        }
-                    });
-            </script>
+
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row mt-5">
+    <div class="col-12 text-center" style="color:green">
+        <h1>{{ msg }}</h1>
+    </div>
+</div>
+<div class="col-12 text-center">
+        <a href="{% url 'account:index' %}">메인화면으로</a>
+</div>
+{% endblock %}

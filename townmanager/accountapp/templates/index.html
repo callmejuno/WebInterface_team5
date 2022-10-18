@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul>
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Dropdown link
+      </a>
+      <div class="dropdown-menu">
+        {% if not logineduser %}
+            <a class="dropdown-item" href="{% url 'account:register' %}">회원가입</a>
+            <a class="dropdown-item" href="{% url 'account:login' %}">로그인</a>
+        {% else %}
+            <a class="dropdown-item" href="{% url 'account:logout' %}">로그아웃</a>
+        {% endif %}
+        <a class="dropdown-item" href="{% url 'account:onlymember' %}">회원페이지</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+{% endblock %}
