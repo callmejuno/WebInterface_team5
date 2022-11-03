@@ -1,0 +1,9 @@
+{% extends 'basesimple.html' %}
+
+{% block mycontent %}
+  <h1>소스 코드를 확인해 주세요...</h1>
+  <form action="{% url 'exam18' %}" method="GET">
+    이름 <input type="text" name="name">
+    <input type="submit">
+  </form>
+{% endblock %}

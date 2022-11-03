@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron text-center">
+  <h1>Django+AJAX+Bootstrap</h1>
+  <h4>AJAX 기술을 이용해서 Django 서버 프로그램을 요청합니다.</h4>
+</div>
+<div class="card-deck">
+  <div class="card bg-primary">
+    <div class="card-body text-center">
+      <p id="파란색" class="card-text" onclick="ajax_proc(this)" style="border:1px dotted black">클릭해 보셔용</p>
+    </div>
+  </div>
+  <div class="card bg-warning">
+    <div class="card-body text-center">
+      <p id="노란색" class="card-text" onclick="ajax_proc(this)" style="border:1px dotted black">클릭해 보셔용</p>
+    </div>
+  </div>
+  <div class="card bg-success">
+    <div class="card-body text-center">
+      <p id="녹색" class="card-text" onclick="ajax_proc(this)" style="border:1px dotted black">클릭해 보셔용</p>
+    </div>
+  </div>
+  <div class="card bg-danger">
+    <div class="card-body text-center">
+      <p id="빨간색" class="card-text" onclick="ajax_proc(this)" style="border:1px dotted black">클릭해 보셔용</p>
+    </div>
+  </div>
+</div>
+<script>
+    function ajax_proc(target) {
+      let xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        let obj = JSON.parse(xhr.responseText);
+        target.innerHTML += "<br>"+target.id+"박스에서의 AJAX 요청 : "+obj.time;
+      }
+      xhr.open("GET", "/secondapp/json2/")
+      xhr.send()
+    }
+</script>
+{% endblock %}

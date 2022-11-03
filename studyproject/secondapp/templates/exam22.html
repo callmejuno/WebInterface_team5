@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+	<h1>일별 박스 오피스</h1>
+    <hr>
+    <div></div>
+<script>
+window.onload = function() {
+	//let url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=75474bdfc6c0a4eb738939dd66c101b5&targetDt=20221003";
+	//let url = "http://openapi.seoul.go.kr:8088/796143536a756e69313134667752417a/json/LampScpgmtb/1/100/";
+	//let url = "http://ws.bus.go.kr/api/rest/busRouteInfo/getBusRouteList?ServiceKey=%2BjzsSyNtwmcqxUsGnflvs3rW2oceFvhHR8AFkM3ao%2Fw50hwHXgGyPVutXw04uAXvrkoWgkoScvvhlH7jgD4%2FRQ%3D%3D&strSrch=360"
+    let url = "/secondapp/exam22_1";
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function(){
+       document.getElementsByTagName('div')[0].textContent = xhr.responseText;
+       //console.log(JSON.parse(xhr.responseText).boxOfficeResult.dailyBoxOfficeList[0].movieNm)
+    };
+    xhr.open("GET", url, true);
+    xhr.send();
+};
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

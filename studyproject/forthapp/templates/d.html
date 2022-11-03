@@ -1,0 +1,21 @@
+{% extends 'basesimple.html' %}
+{% block mycss %}
+    a {
+        text-decoration : none;
+    }
+    a.btn {
+        border : 1px solid green;
+        padding : 2px;
+    }
+    a.btn:hover {
+        background-color : lime;
+    }
+{% endblock %}
+{% block mycontent %}
+{% if msg %}
+    <h2>{{ msg }}</h2>
+    <hr>
+{% endif %}
+<a class="btn" href="{% url 'C' %}">작성 화면</a>
+<a class="btn" href="{% url 'R1' %}">리스트 화면</a><br>
+{% endblock %}

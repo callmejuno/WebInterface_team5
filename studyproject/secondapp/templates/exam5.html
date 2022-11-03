@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if name == '게스트' and  address == '작성안함' %}
+<h1> 이름과 주소를 작성하지 않았군요ㅜㅜ</h1>
+{% else %}
+<h1>당신의 이름은 {{name}} 이고 주소는 {{address}} 이군요</h1>
+{% endif %}
+</body>
+</html>

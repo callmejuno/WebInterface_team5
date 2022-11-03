@@ -1,0 +1,130 @@
+{% extends 'basesimple.html' %}
+
+{% block mycontent %}
+<h2><a href="{% url 'vR' %}">방명록에 남겨진 글들</a></h2>
+<hr>
+{% load static %}
+<table>
+{% for vdata in vlist %}
+      <tr>
+          <td>{{ vdata.name }}</td>
+          <td>{{ vdata.memo }}<span onclick="read_reply({{ vdata.pk }})">({{vdata.reply_set.values|length}})</span></td>
+          <td>{{ vdata.writedate }}</td>
+          <td><img src="{% static  'images/delete.png' %}" onclick="dd_confirm('{{ vdata.name }}', {{ vdata.pk }})" width="20"></td>
+          <td><img src="{% static  'images/edit.png' %}" onclick="ajax_uu_request({{ vdata.pk }})" width="20"></td>
+          <td><img src="{% static  'images/reply.jpg' %}" onclick="write_reply({{ vdata.pk }})" width="20"></td>
+      </tr>
+{% endfor %}
+</table>
+<h5>
+	{% if vlist.has_previous %}
+		<a href='?page={{vlist.number|add:-1}}'>이전페이지</a>
+	{% endif %}
+	Page {{ vlist.number }} / {{ vlist.paginator.num_pages }}
+	{% if vlist.has_next %}
+		<a href='?page={{vlist.number|add:+1}}'>다음페이지</a>
+	{% endif %}
+</h5>
+<div id="searchdiv">
+    <select name="searchtype">
+        <option value="search1">작성자명</option>
+        <option value="search2">작성내용</option>
+    </select>
+    <input type="text" name="keyword">
+    <button  onclick="processSearch() ">검색</button>
+</div>
+<div id="btndiv"><button  onclick="displayInputForm() ">글 작성하기</button></div>
+<div id="ccform"  style="display:none">
+  <h2>의견을 남겨 주세요!</h2>
+	<hr>
+	<form method="post" action="{% url 'vC' %}">
+        {% csrf_token %}
+		<input type="text" name="name"  placeholder="작성자 이름을 입력해 주세요"><br>
+		<textarea style="margin-top:5px" name="memo" cols="60" rows="5" placeholder="자신의 의견을 간단히 적어주세요."></textarea>
+ 		</textarea><br>
+ 		<button type="submit">제출</button>
+ 		<button type="reset">재작성</button>
+        <button onclick="">취소</button>
+	</form>
+</div>
+<script>
+    function displayInputForm() {
+        document.getElementById('ccform').style.display = 'block';
+    }
+    function dd_confirm(name, pk) {
+        let result = confirm(name+"님의 글을 삭제하겠습니까??");
+        if( result )
+            location.href = "{% url 'vD' %}?pk="+pk;
+    }
+    function ajax_uu_request(pk) {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            let jsonObj = JSON.parse(xhr.responseText);
+            document.getElementById('ccform').style.display = 'block';
+            const dom1 = document.querySelector('[name="name"]');
+            const dom2 = document.querySelector('[name="memo"]');
+            dom1.value = jsonObj.name;
+            dom2.textContent = jsonObj.memo;
+            document.querySelector('#ccform h2').textContent = "글을 수정해 주세요";
+            document.querySelector('#ccform form').action = "{% url 'vU' %}?pk="+pk;
+        };
+        xhr.open("GET", "{% url 'vU' %}?pk="+pk, true);
+        xhr.send();
+    }
+    function write_reply(pk) {
+        const replycontent = window.prompt("댓글을 작성하세요");
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            let jsonObj = JSON.parse(xhr.responseText);
+            alert(jsonObj.result)
+            location.href = "{% url 'vR' %}?page="+{{ vlist.number }};
+        };
+        xhr.open("GET", "{% url 'rC' %}?pk="+pk+"&content="+replycontent, true);
+        xhr.send();
+    }
+    function read_reply(pk) {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            let jsonObj = JSON.parse(xhr.responseText);
+            let msg = "";
+            for (let i  in jsonObj.result)
+                msg += jsonObj.result[i] +"\n";
+            alert(msg)
+        };
+        xhr.open("GET", "{% url 'rR' %}?pk="+pk, true);
+        xhr.send();
+    }
+    function processSearch() {
+         location.href = '/visitorapp/'+document.querySelector('[name="searchtype"]').value+'/'+document.querySelector('[name="keyword"]').value;
+    }
+</script>
+{% endblock %}
+
+{% block mycss %}
+  button {
+    margin-top : 5px;
+  }
+  td {
+    border-bottom : 1px dotted gray;
+  }
+  tr:hover {
+    background-color : pink;
+  }
+  h2, h5 {
+    text-align : center;
+  }
+#ccform, table {
+    width:60%;
+    margin-left : auto;
+    margin-right : auto;
+}
+#btndiv, #searchdiv {
+    text-align : center;
+}
+h2>img {
+    width:30px;
+}
+a {
+    text-decoration : none;
+}
+{% endblock %}

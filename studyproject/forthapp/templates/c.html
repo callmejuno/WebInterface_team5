@@ -1,0 +1,40 @@
+{% extends 'basesimple.html' %}
+
+{% block mycss %}
+    a {
+        text-decoration : none;
+    }
+    a.btn {
+        border : 1px solid green;
+        padding : 2px;
+    }
+    a.btn:hover {
+        background-color : lime;
+    }
+{% endblock %}
+
+{% block mycontent %}
+{% if msg %}
+    <h2>{{ msg }}</h2>
+    <hr>
+    <a class="btn" href="{% url 'C' %}">작성 화면</a>
+    <a class="btn" href="{% url 'R1' %}">리스트 화면</a><br>
+{% else %}
+    <h2> 미팅정보 작성 </h2>
+    <hr>
+    <form method="post" action="{% url 'C' %}">
+    <p> 이름 : <input type="text" name="name"></p>
+    <p> 인원 : <input type="number" name="personnel"></p>
+    <p> 미팅내용 : <textarea name="title" rows="5" cols="30"></textarea></p>
+    <p> 미팅일시 : <input type="datetime-local" name="meetingdate"></p>
+    <input type="submit" value="작성보내기">
+    <button onclick='write_cancel(); return false;'>작성취소</button>
+    {% csrf_token %}
+    </form>
+    <script>
+        function write_cancel() {
+            location.href="{% url 'R1' %}"
+        }
+    </script>
+{% endif %}
+{% endblock %}

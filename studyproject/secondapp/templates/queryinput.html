@@ -1,0 +1,31 @@
+{% extends 'basesimple.html' %}
+
+{% block mycontent %}
+  <h1>Query 문자열 완전정복(ㅎ) </h1>
+  <hr>
+  <h2>&lt;form&gt; 태그를 사용한 {{mymethod}} 방식 요청 테스트</h2>
+  <form method="{{mymethod}}" action="{% url 'qsp' %}">
+      {% if mymethod == 'POST' %}
+        {% csrf_token %}
+      {% endif %}
+      성명을 입력하세요: <input type="text" name="guestname" required><br>
+      취미를 선택하세요:
+      <input type="checkbox" name="guesthobby" value="수영">수영
+      <input type="checkbox" name="guesthobby" value="독서">독서
+      <input type="checkbox" name="guesthobby" value="기타연주">기타연주<br>
+      칼라를 선택하세요 :
+      <input type="radio" name="guestcolor" value="pink">핑크색
+      <input type="radio" name="guestcolor" value="lime">연두색
+      <input type="radio" name="guestcolor" value="orange">주황색<br>
+      글을 입력하세요 : <br>
+      <textarea name="guestmemo" rows="5" cols="50"></textarea><br>
+      <input type="submit" value="{{mymethod}}방식으로 요청">
+      <input type="reset" value="재작성">
+  </form>
+  <hr>
+  <a href="/secondapp/querystringproc/?guestname=유니코&guesthobby=요리&guesthobby=등산&guestcolor=red&guestmemo=즐거운 금요일">GET방식은 &lt;a&gt;태그로도 요청 가능요</a><br>
+  <hr>
+  {% load static %}
+  <a href="/secondapp/querystringproc/?guestname=올라프&guesthobby=스케이팅&guestcolor=blue&guestmemo=눈이 또 올까요?"><img src="{% static 'images/olaf3.png'%}" width="100"></a>
+{% endblock %}
+

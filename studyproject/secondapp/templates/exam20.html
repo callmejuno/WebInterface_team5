@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>AJAX 통신 테스트</h1>
+<a href="/secondapp/json1/">하이퍼링크로요청</a>
+<hr>
+<button onclick="location.href='/secondapp/json1/';">버튼을클릭하여요청</button>
+<hr>
+<button onclick="requestAjax();">버튼을클릭하여요청(AJAX사용)</button>
+<hr>
+<div id="result"></div>
+<script>
+function requestAjax() {
+	let req = new XMLHttpRequest();
+	req.onload = function() {
+		let result = document.getElementById("result");
+		result.innerHTML += req.responseText+"<br>";
+		let jsonObj = JSON.parse(req.responseText);
+		console.log(jsonObj.message);
+		console.log(jsonObj.items);
+		console.log(jsonObj.num);
+	}	
+	req.open("GET", "/secondapp/json1/", true);
+	req.send();	
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

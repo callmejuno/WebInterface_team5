@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container p-3 my-3 bg-primary text-white">
+  <h1>'unico'라는 이름으로 알려져 있는 exam16.html 입니다. 잘 부탁해용!!!</h1>
+  <h2>제가 받은 데이터는 {{ message }} 입니다.</h2>
+  {% for msg in msg_list%}
+    <h2>{{ msg }}</h2>
+  {% endfor %}
+    </div>
+{% endblock %}

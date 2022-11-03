@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <section class="vh-100" style="background-color: #212529;">
+        <div class="p-3 h-100 container mb-4 bg-light border align-items-center rounded-2" style="box-shadow: 10px 5px 5px #CCC; width: 75%; vertical-align: middle;" >
+            <div class="row mt-2">
+                <div class="col-12 text-center">
+                    <h1>회원가입</h1>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center align-items-center h-25">
+                <div class="row mt-2">
+                    <div class="col-12 text-center" style="color:red">
+                        {{error}}
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <form method="POST" action="{% url 'townmanager:register' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="useremail">사용자 이메일</label>
+                                <input type="email" class="form-control"  placeholder="사용자 아이디" name="useremail" required>
+                                <small id="emailHelp" class="form-text text-muted">이메일 주소를 아이디로 사용합니다.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">사용자 성과 이름</label>
+                                <input type="text" class="form-control"  placeholder="성" name="lastname" required>
+                                <input type="text" class="form-control"  placeholder="이름" name="firstname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">비밀번호</label>
+                                <input type="password" class="form-control" placeholder="비밀번호" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-password">비밀번호 확인</label>
+                                <input type="password" class="form-control" placeholder="비밀번호 확인" name="re-password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="re-password">거주지역</label>
+                                <input type="text" class="form-control" placeholder="시/구까지 입력해주세요" name="place" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="re-password">생년월일</label>
+                                <input type="date" class="form-control" placeholder="yyyy-mm-dd" name="birth" required>
+                            </div>
+
+                            <div class="col-12 mt-4 mb-4">
+                                <div class="form-check">
+                                    <a href="https://docs.google.com/document/d/e/2PACX-1vQnQNlxWc5Crsc3W2dKR0FXOcoFblWyqI4dwRaKhpCCUIxDSM8IhRu-KK09qQwBmPHB6zKgorSI_fym/pub" class="large text-muted">이용약관</a>
+                                    <br>
+                                    <label class="form-check-label" for="flexCheckChecked">동의 <span style="color: red; margin-right: 30px;">(필수)</span><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"></label>
+                                </div>
+                                <br>
+                                <div class="form-check">
+                                    <a href="https://docs.google.com/document/d/e/2PACX-1vQB3jvrh1h59MECkdwRZF37S4I5udr_l4PjEtksllN8NgPmSED-eNu9nDxkAa1R0gAXg8KeSDHKeyZO/pub" class="large text-muted">개인정보 보호 정책</a>
+                                    <br>
+                                    <label class="form-check-label" for="flexCheckChecked">동의 <span style="color: red; margin-right: 30px;">(필수)</span><input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"></label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">회원가입</button>
+                        </form>
+                        <div class="col-12 text-center">
+                            <a class="x-large" href="{% url 'townmanager:townmanager_index' %}">홈으로</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

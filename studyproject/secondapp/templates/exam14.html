@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container p-3 my-3 bg-dark text-white"><h1>올라프를 소개해용(1)</h1></div>
+
+{% if result %}
+ <div class="card" style="width:200px">
+    <a href = '/secondapp/exam19/'>
+        <img class="card-img-top" src="/static/images/olaf1.png" alt="Card image" style="width:100%">
+    </a>
+    <div class="card-body">
+      <h4 class="card-title">울라프1</h4>
+      <p class="card-text">울라프는 겨울 왕국에서 가장 인기있는 캐릭터입니다요.</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+ </div>
+{% else %}
+  <div class="card" style="width:200px">
+    <div class="card-body">
+      <h4 class="card-title">올라프2</h4>
+      <p class="card-text">울라프는 겨울 왕국에서 가장 인기있는 캐릭터입니다요.</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+    <img class="card-img-bottom" src="http://localhost:8000/static/images/olaf1.png" alt="Card image" style="width:100%">
+  </div>
+{% endif %}
+<hr>
+<button type="button" class="btn btn-outline-primary"  onclick='alert("{{ num1|add:100 }}")'>100 더하기</button>
+<button type="button" class="btn btn-outline-success" onclick='displayNum()'>실수 데이터 출력(소수점 아래 둘째짜리까지)</button>
+<output></output>
+<script>
+function displayNum() {
+  document.querySelector("output").innerHTML = "<h3>" + {{num2|floatformat:2}} + "</h3>";
+  //$('output').html("<h3>" + {{num2|floatformat:2}} + "</h3>");
+  // document.getElementsByTagName("output")[0].innerHTML = "<h3>" + {{num2|floatformat:2}} + "</h3>";
+}
+</script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'basesimple.html' %}
+
+{% block mycss %}
+    td {
+        border-bottom : 1px dotted gray;
+    }
+    td:nth-child(1) {
+        width : 100px;
+    }
+    td:nth-child(2) {
+        width : 50px;
+    }
+    td:nth-child(3) {
+        width : 200px;
+    }
+    td:nth-child(4), td:nth-child(5)  {
+        width : 80px;
+        text-align : center;
+    }
+    tr:hover {
+        background : pink;
+    }
+    a {
+        text-decoration : none;
+    }
+    a.btn {
+        border : 1px solid green;
+        padding : 2px;
+    }
+    a.btn:hover {
+        background-color : lime;
+    }
+{% endblock %}
+
+{% block mycontent %}
+  {% if meetings %}
+    <h2> 미팅 정보 리스트입니당</h2>
+    <hr>
+    <table>
+    {% for meeting in meetings %}
+      <tr>
+        <td><a href="{% url 'R2' meeting.id %}">{{ meeting.name }}</a></td>
+        <td>{{ meeting.personnel }}명</td>
+        <td>{{ meeting.meetingdate }}</td>
+        <td><a href="{% url 'D' meeting.id %}">삭제</a></td>
+        <td><a href="{% url 'U' meeting.id %}">수정</a></td>
+      </tr>
+    {% endfor %}
+    </table>
+    <hr>
+ {% elif meeting %}
+    <h2>요청한 {{ meeting.id }} 번의 미팅 내용 입니당</h2>
+    <p> {{ meeting.title }}</p>
+    <hr>
+ {% else %}
+    {% if msg %}
+       <h2>{{ msg }}</h2>
+       <hr>
+    {% endif %}
+ {% endif %}
+
+ <a class="btn" href="{% url 'C' %}">작성 화면</a>
+ <a class="btn" href="{% url 'R1' %}">리스트 화면</a><br>
+{% endblock %}

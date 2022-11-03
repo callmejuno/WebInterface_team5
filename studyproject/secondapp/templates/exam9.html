@@ -1,0 +1,40 @@
+{% extends 'basesimple.html' %}
+
+{% block mycontent %}
+    {% if info %}
+        <h1>작성된 정보는 다음과 같습니다.</h1><hr>
+        <h3>좋아하는 음식 : {{ info.info1 }}</h3>
+        <h3>좋아하는 칼라 : {{ info.info2 }}</h3>
+        <h3>태어난 년도 : {{ info.info3 }}</h3>
+        <h3>메모 : {{ info.info4 }}</h3>
+        <h3>생일 : {{ info.info5 }}</h3>
+    {% else %}
+        <h1>정보를 작성하세요.</h1><HR>
+        <form method="post" action="http://localhost:8000/secondapp/exam9/">
+            {% csrf_token %}
+            좋아하는 음식 : <br>
+            <input type="checkbox" name="food" value="불고기">불고기
+            <input type="checkbox" name="food" value="치킨">치킨
+            <input type="checkbox" name="food" value="피자" checked>피자
+            <input type="checkbox" name="food" value="짜장면">짜장면<br><br>
+            좋아하는 칼라 : <br>
+            <input type="radio" name="fcolor" value="노란색">노란색
+            <input type="radio" name="fcolor" value="녹색" checked>녹색
+            <input type="radio" name="fcolor" value="주황색">주황색<br><br>
+            태어난 년도 : <br>
+            <select name="year">
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+            </select><br><br>
+            남기려는 글 : <br>
+            <textarea name="memo" rows="5" cols="50"></textarea><br><br>
+            생일 : <br>
+            <input type="date" name="birth"><br><br>
+            <input type="submit" value="전송">
+            <input type="reset" value="재작성">
+        </form>
+    {% endif %}
+{% endblock %}

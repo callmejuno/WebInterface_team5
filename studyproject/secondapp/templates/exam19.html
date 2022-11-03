@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>지금은 언제일까?</h1>
+<hr>
+<!-- https://docs.djangoproject.com/en/4.0/ref/templates/builtins/ -->
+<ul>
+    <li>{{ current_date  }}</li>
+    <li>{{ current_date|date }}</li>
+    <li>{{ current_date|date:"Y년 m월 d일 H시 i분 s초" }}</li>
+    <li>{{ current_date|date:"j일 d일"}}</li>
+    <li>{{ current_date|time }}</li>
+    <li>{{ current_date|time:" H시 i분 s초" }}</li>
+</ul>
+</body>
+</html>

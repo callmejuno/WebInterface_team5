@@ -1,0 +1,26 @@
+{% extends 'basesimple.html' %}
+{% block mycss %}
+    * {
+        color : {{gcolor}}
+    }
+{% endblock %}
+{% block mycontent %}
+  <h1>추출된 Query 문자열의 내용</h1>
+  <hr>
+  <h2>성명 - {{gname}}</h2>
+  {% if ghobby|length == 0 %}
+    <h3>취미를 선택하지 않았네용</h3>
+  {% else %}
+    <h2>취미</h2>
+    <ol>
+        {% for element in ghobby %}
+            <li>{{element}}</li>
+        {% endfor %}
+    </ol>
+  {% endif %}
+  <hr>
+  <button onclick="alert('{{gmemo}}');">글 확인하기</button>
+  <hr>
+  <a href="{{request.headers.referer}}">입력화면으로 가기</a>
+{% endblock %}
+

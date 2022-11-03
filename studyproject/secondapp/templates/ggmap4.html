@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Simple Map</title>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy81EbO46BRSnX1DOgg_F84bhsdbku2z4"></script>
+<style type="text/css">
+#map {
+	height: 600px;
+	width: 100%;
+}
+</style>
+</head>
+<body>
+	<h1>구글 지도 출력</h1>
+	<hr>
+	<div id="map" style="width: 800px; height: 600px;"></div>
+	<script> 
+			window.onload = function() {
+				var dom = document.getElementById("map");
+				// html5 에서 추가된 geolocation 객체를 사용하여 현재 이 시스템이 존재하는 위치정보(위도,경도) 추출
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var latlng = { lat: position.coords.latitude, lng: position.coords.longitude }
+					var map = new google.maps.Map(dom, {
+			           	center: latlng,
+			           	zoom: 16
+			       	});
+						
+					var marker = new google.maps.Marker({position: latlng, map: map});
+						
+					var contentString =
+				       "<div><h2 style='color:red;'>JavaScript와 GoogleMap 의 세계로......</h2><hr>우리는 이곳에서<br>HTML, CSS, JavaScript를  공부합니다.</div>";
+						
+					var infowindow = new google.maps.InfoWindow({
+					    content: contentString
+					});
+						
+					marker.addListener('click', function() {
+					    infowindow.open(map, marker);
+					});
+				});
+		  };
+        </script>
+</head>
+</body>
+</html>

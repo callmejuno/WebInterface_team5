@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>TownManager | 주거 및 환경 관리 전문가 구직 플랫폼</title>
+    <link rel="icon" href="{% static 'img/TownManager.png' %}" sizes="32x32"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy81EbO46BRSnX1DOgg_F84bhsdbku2z4" ></script>
+    <style type="text/css">
+      #map {
+       height: 600px;
+       width: 100%; 
+     }
+    </style>
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container px-4 px-lg-5">
+          <a class="navbar-brand" href="./">
+              <img src = "{% static 'img/logo_long.png' %}" style = 'max-height: 40px; width: auto'>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                  <li class="nav-item dropdown" style = "font-weight: bold;">
+                      <a class="nav-link dropdown-toggle" style="margin-right: 40px;" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">직군별 찾아보기</a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" style = "font-weight: bold;" href="#!">직군전체</a></li>
+                          <li><hr class="dropdown-divider" /></li>
+                          <li><a class="dropdown-item" href="#!">관리</a></li>
+                          <li><a class="dropdown-item" href="#!">기계</a></li>
+                          <li><a class="dropdown-item" href="#!">소방</a></li>
+                          <li><a class="dropdown-item" href="#!">전기</a></li>
+                          <li><a class="dropdown-item" href="#!">영선</a></li>
+                          <li><a class="dropdown-item" href="#!">미화</a></li>
+                          <li><a class="dropdown-item" href="#!">경리</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#!" id = 'drawer-opener' style = "font-weight: bold;">플랫폼소개</a>
+                  </li>
+                  <div class = 'drawer' style="z-index: 10; margin-top: 10px; margin-bottom: 10px; border-top-left-radius: 20px; border-bottom-left-radius: 20px;">
+                      <h2 style="text-align:center;">플랫폼소개</h2>
+                      <hr>
+                      <ul class="px-4 px-lg-4 my-4">
+                          <li style="font-size:large">2021년 경비직을 비롯한 시설관리직군은 150만회에 달하는 계약이 체결되었습니다. 그러나 기존 채용 방식은 인맥 위주 채용, 등록 회비를 부과하는 협회 주도의 독점이 되고 있습니다.</li>
+                          <br>
+                          <li style="font-size:large">이에 해당 분야에서 사용자가 자신의 전문분야를 등록하고 적합한 공고를 무료로 찾아볼 수 있는 플랫폼을 만들었습니다.</li>
+                          <br>
+                          <li style="font-size:large">사용자와 구직자가 서로를 효율적으로 이어줄 수 있도록 타운매니저가 돕겠습니다.</li>
+                          <br>
+                          <button class="btn btn-outline-dark" id = 'drawer-opener-in-sideMenu' type="button">
+                              <i class="bi-backspace-fill me-1" ></i>
+                              뒤로가기
+                          </button>
+                      </ul>
+                  </div>
+      
+                  <script src="{% static 'js/sidemenu.js' %}"></script>
+              </ul>
+              <form class="d-flex">
+
+                  {% if not logineduser %}
+                  <a class="nav-link active" aria-current="page" href="login">로그인</a>
+                  {% else %}
+                  <a class="d-flex align-items-center text-black text-decoration-none">환영합니다 {{ logineduser }}님!</a>
+                  <a class="nav-link active" aria-current="page" href="{% url 'townmanager:logout' %}">로그아웃</a>
+                  
+                  <button type = "button" class="btn btn-outline-dark" onclick="location.href='myPage'">
+                      <i class="bi-flag-fill me-1"></i>
+                      마이페이지
+                  </button>
+                  {% endif %}
+              </form>
+          </div>
+      </div>
+    </nav>
+
+    <section class="container py-4">
+      <header class="pb-3 mb-4 border-bottom" style="height:100px; vertical-align: middle; display: flex;">
+        <a href="/" class="d-flex align-items-center text-black text-decoration-none">
+          <div style="text-align: center; height: 55px; width: 55px; vertical-align: middle; display: flex; border: 2px solid gray; border-radius: 10px; margin-right: 20px">
+            <img src= "{% static 'img/금천구.svg' %}" style="height: auto; max-width: 50px;">
+          </div>
+          <p class="fs-1" style="padding-top: 10px; padding-right: 10px;">금천구청</p>
+          <div class="d-flex justify-content-center small text-warning mb-2">
+            <div class="bi-star-fill"></div>
+            <div class="bi-star-fill"></div>
+            <div class="bi-star-fill"></div>
+            <div class="bi-star-half"></div>
+            <div class="bi-star"></div>
+        </div>
+        </a>
+      </header>
+
+      <div class="p-3 mb-4 bg-light border rounded-3" style="box-shadow: 10px 5px 5px #CCC;">
+        <div class="container-fluid py-3 row align-items-md-stretch">
+          <h2 class="display-6 fw-bold">일터 소개</h2>
+          <hr>
+          <div class="h-50 p-2 bg-light rounded-3 col-md-5">
+            <img class="" style="max-width:inherit;" src="{% static 'img/금천구청.JPG' %}" alt="..." />
+          </div>
+          <div class="h-50 p-2 bg-light rounded-3 col-md-7">
+            <p class="lead fw-normal mb-3">동네방네, 행복도시 금천!<br>
+              <br>발전적인 미래로 도약하는 금천구의 ‘도시 원동력과 활력’을 모토로 금천구청은 인간중심형 첨단산업과 감성중심형 패션산업 육성을 통해 ‘살기좋고 행복한 도시’ 로 성장하는 미래를 그리고 있습니다.<br>
+              <br>금천구청은 시민 복지를 위해 최선을 다하는 공공기관입니다. 현재 가족같은 분위기에서 함께 일하실 시설관리직원을 모시고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+          <div class="h-50 p-4 bg-light border rounded-3 mb-4" style="box-shadow: 10px 5px 5px #CCC;">
+            <h2>채용중인 포지션</h2>
+            <hr>
+            <ul>
+              <li>영선반장 채용 (경력 7년~)</li>
+            </ul>
+            <button class="btn btn-outline-dark" type="button">바로 지원하기</button>
+          </div>
+          <div class="h-25 p-4 bg-light border rounded-3 mb-4" style="box-shadow: 10px 5px 5px #CCC;">
+            <h2>게시판</h2>
+            <hr>
+            <p></p>
+            <button class="btn btn-outline-dark" type="button">이동하기</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 p-4 text-white bg-dark rounded-3" style="box-shadow: 10px 5px 5px #CCC;">
+            <h2>찾아오시는길</h2>
+            <hr>
+            <div id="map" style="background-size: cover;"></div>
+            <script>
+              var dom = document.getElementById("map");
+              if(dom) {
+                var latlng = { lat: 37.451853, lng: 126.902036}
+                var map = new google.maps.Map(dom, {
+                        center: latlng,
+                        zoom: 16
+                      });
+                var marker = new google.maps.Marker({position: latlng, map: map});
+                
+                var contentString = "<p style='color: black'>여기에요! 여기!</p>";
+                
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+                
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+              }     
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <footer class="py-5 bg-dark">
+      <div class = "text-center container" style="margin-bottom: 30px">
+          <p class="text-center text-white" style="font-size: large; margin-right: 150px"><a class="m-0" href="#!">FAQ</a></p>
+          <p class="text-center text-white" style="font-size: large;"><a class="m-0" href="#!">문의하기</a></p>
+      </div><br>
+      <div class="text-center container">
+          <div class="container">
+              <div class="container"><li class="m-0 text-center text-white" style='list-style-type: none'>&copy; TownManager, Inc. 2022 All rights reserved.</li></div>
+          </div>
+      </div>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

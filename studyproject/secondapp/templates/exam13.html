@@ -1,0 +1,93 @@
+{% extends 'basesimple.html' %}
+
+{% block mycontent %}
+    <h3>1. 반복문</h3>
+    
+    {% for food in foods %}
+        <p>{{ food }}</p>
+    {% endfor %}
+
+    {% for food in foods %}
+        <p>{{ forloop.counter }} {{ food }}</p>
+    {% endfor %}
+
+    {% for element in empty_list %}
+        <p>{{ element }}</p>
+    {% empty %}
+        <p>지금 아무것도 없네요..</p>
+    {% endfor %}
+    <hr>
+
+    <h3>2. 조건문</h3>
+    {% if '짜장면' in foods %}
+        <p>짜장면 역시 또자강!!</p>
+    {% endif %}
+    <hr>
+
+    {% for food in foods %}
+        {% if forloop.last %}
+            <p>짜장면엔 고추가루지!!</p>
+        {% else %}
+            <p>{{ food }}</p>
+        {% endif %}
+    {% endfor %}
+    <hr>
+
+    <h3>3. length filter</h3>
+    {% for food in foods %}
+        {% if food|length > 2 %}
+            <p>메뉴 이름이 너무 길어요</p>
+        {% else %}
+            <p>{{ food }}, {{ food|length }}</p>
+        {% endif %}
+    {% endfor %}
+    <p>{{ foods }}</p>
+    <p>{{ foods|length }}</p>
+    <p>{{ foods.0 }}</p>
+    <p>{{ foods.0|length }}</p>
+    <p>{{ foods.1 }}</p>
+    <p>{{ foods.1|length }}</p>
+    <hr>
+
+    <h3>4. lorem ipsum</h3>
+    <p>{% lorem %}</p>
+    <hr>
+    {% lorem 3 w %}
+    <hr>
+    {% lorem 4 w random %}
+    <hr>
+
+    <h3>5. 글자수 제한</h3>
+    <p>{{ messages|truncatewords:3 }}</p>
+    <p>{{ messages|truncatechars:3 }}</p>
+    <p>{{ messages|truncatechars:10 }}</p>
+    <hr>
+
+    <h3>6. 글자 관련 필터</h3>
+    <p>{{ 'ABC'|lower }}</p>
+    <p>{{ messages|title }}</p>
+    <p>{{ 'abc edf'|capfirst }}</p>
+    <p>{{ foods|random }}</p>
+
+    <h3>7. 연산</h3>
+    <p>{{ 4|add:6 }}</p>
+    <p>{{ 4|divisibleby:2 }}</p>
+
+    <h3>8. 날짜 표현</h3>
+    <p>전달받은 데이터 : {{ datetime_now }}</p>
+    <p>{% now "DATETIME_FORMAT" %}</p>
+    <p>{% now "DATE_FORMAT" %}</p>
+    <p>{% now "SHORT_DATETIME_FORMAT" %}</p>
+    <p>{% now "SHORT_DATE_FORMAT" %}</p>
+    <p>{% now "Y y m n M d j w D l z" %}</p>
+    <p>{% now "e T g  G h H i s a A" %}</p>
+    <hr>
+    <ul>
+   {% for data in foods %}
+        <li class="{% cycle 'aa' 'bb' %}">{{ data }}</li>
+   {% endfor %}
+    </ul>
+{% endblock %}
+
+
+

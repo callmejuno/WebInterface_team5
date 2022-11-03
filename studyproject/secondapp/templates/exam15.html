@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div style="text-align:center">
+  <h1 >이름이 'unico'인 다른 장고뷰를 요청해보자!! </h1>
+  <hr>
+  <form action="{% url 'unico' %}" method="GET">
+    <input type="text" name="message">
+    <input type="submit">
+  </form>
+  </div>
+{% endblock %}

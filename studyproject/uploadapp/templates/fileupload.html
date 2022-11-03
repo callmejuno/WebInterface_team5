@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if upload.photo %}
+<h2>업로드된 사진의 제목 : {{ upload.title }}</h2>
+<p>업로드된 사진의 내용  : {{ upload.content }}</p>
+<p>path :{{ upload.photo.path }}</p>
+<p>url : {{ upload.photo.url }}</p>
+<img src="{{ upload.photo.url }}" width="200" alt="">
+{% else %}
+<h2>업로드하려는 사진파일과 정보를 입력하세요</h2>
+<form method="post"  action="{% url 'upload' %}" enctype="multipart/form-data">
+	{% csrf_token %}
+    <p>사진제목 : <input type="text" name = "title"></p>
+    <p>사진내용 : <textarea name = "content" rows="4" cols="30"></textarea></p>
+    업로드할 사진파일 선택 : <input type="file" name="photo"><br>
+    <input type="submit" value="전송">
+</form>
+{% endif %}
+</body>
+</html>

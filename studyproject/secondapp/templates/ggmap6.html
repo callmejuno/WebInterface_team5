@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset='utf-8'>
+    <title>Simple Map</title>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy81EbO46BRSnX1DOgg_F84bhsdbku2z4" ></script>
+    <style type="text/css">
+       #map {
+        height: 600px;
+        width: 600px;
+      }
+    </style>   
+  </head>
+  <body>
+    <h1>구글 지도 출력</h1>
+    <hr>
+    <div id="map"></div>
+    {% load static %}
+     <script>
+        var latt = {{ lat }};
+        var lngg = {{ lng }};
+        {% autoescape off %}
+        var hname = {{ hname }};
+        var address = {{ address }};
+        {% endautoescape %}
+
+        function average(array) {
+          var sum = 0.0;
+          for (var i = 0; i < array.length; i++)
+            sum += array[i];
+          return sum / array.length;
+        }
+	    var avglat = average(latt);
+	    var avglng = average(lngg);
+        var old;
+     	var dom = document.getElementById("map");
+		if(dom) {
+		 var map = new google.maps.Map(dom, {
+			center: { lat: avglat, lng: avglng},				
+		            	zoom: 14
+		 });
+		var marker = new Array(5);
+		var  infowindow = new Array(5);
+		for(i=0; i<5; i++) {
+			var latlng = {lat: latt[i], lng: lngg[i]}
+			var contentString = hname[i] + "<br>" + address[i];
+			var myinfowindow = new google.maps.InfoWindow({
+			    content: contentString
+			});
+			var image = {
+                  url: "{% static 'images/duke.png' %}",
+                  scaledSize: new google.maps.Size(25, 25)
+            };
+			var marker = new google.maps.Marker({
+			                        position: latlng,
+			                        map: map,
+			                        icon: image,
+			                        infowindow: myinfowindow
+			});
+			
+			marker.addListener('click', function() {      // 클릭 이벤트 발생 시 지도와 마커 출력
+			   if(old) 
+				old.close();
+			   this.infowindow.open(map, this);
+			   old = this.infowindow;
+			});
+		  }
+        }
+    </script>
+  </body>
+</html>
