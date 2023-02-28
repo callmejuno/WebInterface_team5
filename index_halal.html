@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>KoreHalal | Enjoy your Halal Travel in Korea</title>
+        <link rel="icon" href="./img/TownManager_logo.png" sizes="32x32"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="./index.html">
+                    <img src = "./img/소울오브할랄.png" style = 'max-height: 80px; width: auto'>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item dropdown" style = "font-weight: bold;">
+                            <a class="nav-link dropdown-toggle" style="margin-right: 40px;" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dish</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" style = "font-weight: bold;" href="#!">Classification</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">Traditional Korean</a></li>
+                                <li><a class="dropdown-item" href="#!">Fusion Korean</a></li>
+                                <li><a class="dropdown-item" href="#!">Arabic</a></li>
+                                <li><a class="dropdown-item" href="#!">Asian</a></li>
+                                <li><a class="dropdown-item" href="#!">Western</a></li>
+                                <li><a class="dropdown-item" href="#!">Chinese</a></li>
+                                <li><a class="dropdown-item" href="#!">Japanese</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!" id = 'drawer-opener' style = "font-weight: bold;">Platform Intro</a>
+                        </li>
+                        <div class = 'drawer' style="z-index: 10; margin-top: 10px; margin-bottom: 10px; border-top-left-radius: 20px; border-bottom-left-radius: 20px;">
+                            <h2 style="text-align:center;">Platform Intro</h2>
+                            <hr>
+                            <ul class="px-4 px-lg-4 my-4">
+                                <li style="font-size:large">2021년 경비직을 비롯한 시설관리직군은 150만회에 달하는 계약이 체결되었습니다. 그러나 기존 채용 방식은 인맥 위주 채용, 등록 회비를 부과하는 협회 주도의 독점이 되고 있습니다.</li>
+                                <br>
+                                <li style="font-size:large">이에 해당 분야에서 사용자가 자신의 전문분야를 등록하고 적합한 공고를 무료로 찾아볼 수 있는 플랫폼을 만들었습니다.</li>
+                                <br>
+                                <li style="font-size:large">사용자와 구직자가 서로를 효율적으로 이어줄 수 있도록 타운매니저가 돕겠습니다.</li>
+                                <br>
+                                <button class="btn btn-outline-dark" id = 'drawer-opener-in-sideMenu' type="button">
+                                    <i class="bi-backspace-fill me-1" ></i>
+                                    back
+                                </button>
+                            </ul>
+                        </div>
+            
+                        <script src="./js/sidemenu.js"></script>
+                    </ul>
+                    <form class="d-flex">
+                        <a class="nav-link active" aria-current="page" href="login.html">Login</a>
+                        <button type = "button" class="btn btn-outline-dark" onclick="location.href='./myPage.html'">
+                            <i class="bi-flag-fill me-1"></i>
+                            MyPage
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <header class="bg-dark py-2">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">KoreHalal</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Enjoy your Halal Travel in Korea</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                
+                <form class="form-inline my-2 my-lg-0" style="margin-bottom: 5px">
+                    <p class = text-center style="font-weight:bold; font-size:x-large;">Popular Tag : </p>
+
+                    <button class="btn btn-outline-dark" style="background-color: #AAA; margin-right: 10px" type="submit">
+                        <i class="bi bi-tag-fill"></i>
+                        Halal
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">635</span>
+                    </button>
+                    <button class="btn btn-outline-dark" style="background-color: #AAA; margin-right: 10px" type="submit">
+                        <i class="bi bi-tag-fill"></i>
+                        Itaewon
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">472</span>
+                    </button>
+                    <button class="btn btn-outline-dark" style="background-color: #AAA; margin-right: 10px" type="submit">
+                        <i class="bi bi-tag-fill"></i>
+                        Korean contemporary
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">390</span>
+                    </button>
+                    <button class="btn btn-outline-dark" style="background-color: #AAA;" type="submit">
+                        <i class="bi bi-tag-fill"></i>
+                        Gangnam
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">275</span>
+                    </button>
+                </form><br>
+
+                <form class="form-inline my-2 my-lg-0" style="margin-bottom: 5px">
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Enter search term..." aria-describedby="button-search" />
+                            <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="py-0">
+            <div class="container px-4 px-lg-5 mt-5">
+                <h2 class="text-center">Today's <span><img src="https://cdn-icons-png.flaticon.com/512/740/740842.png" style = 'max-height: 32px; width: auto'></span> Popular Restaurant</h2>
+                <hr>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center slider">
+                    <div class = "col slide">
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="./img/petra.jpg" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <p class="fw-bolder">Petra</p>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-half"></div>
+                                            <div class="bi-star"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        Seoul Yongsan-gu<br>Arabic
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="./job_intro.html">Detail</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Hot badge-->
+                                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
+                                <!-- Product image-->
+                                <img class="card-img-top" src="./img/Eid.jpg" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <p class="fw-bolder">Eid</p>
+                                        <!-- Product reviews-->
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-half"></div>
+                                            <div class="bi-star"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        Seoul Yongsan-gu<br>Korean
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Detail</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="./img/saffron.jpg" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <p class="fw-bolder">Saffron</p>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        <p class="fw-bolder" style="color: red">Closed today</p><br>
+                                        <span class="text-muted text-decoration-line-through">Seoul Jung-gu<br>Arabic</span>
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Detail</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="./img/Yanguk.jpg" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <p class="fw-bolder">Yanguk</p>
+                                        <!-- Product reviews-->
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        Seoul Gangnam-gu<br>BBQ
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Detail</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "col slide">
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Hot badge-->
+                                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
+                                <!-- Product image-->
+                                <img class="card-img-top" src="./img/스타벅스경주.JPG" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <p class="fw-bolder">경상북도 경주시 스타벅스대릉원점</p>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-half"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        시설관리팀 신입채용<br>(경력 가능)
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="./img/라마다호텔.JPG" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <p class="fw-bolder">서울특별시 중구 라마다호텔</p>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        전기과장 채용<br>(경력 5년~)
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Hot badge-->
+                                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
+                                <!-- Product image-->
+                                <img class="card-img-top" src="./img/DMC파크뷰자이.JPG" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <p class="fw-bolder">서울특별시 DMC파크뷰자이 2단지</p>
+                                        <!-- Product reviews-->
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        관리사무소장 채용<br>(경력 10년~)
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="./img/종로타워.JPG" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <p class="fw-bolder">서울특별시 종로구 종로타워</p>
+                                        <!-- Product reviews-->
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-half"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        경리주임 채용<br>(경력 2년~)
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "col slide">
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="./img/류근철컴플렉스.JPG" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <p class="fw-bolder">대전광역시 유성구 류근철컴플렉스</p>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-half"></div>
+                                            <div class="bi-star"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        시설관리팀장 채용<br>(경력 7년~)
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Hot badge-->
+                                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
+                                <!-- Product image-->
+                                <img class="card-img-top" src="./img/영화의전당.JPG" alt="..." />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <p class="fw-bolder">부산광역시 해운대구 영화의전당</p>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-half"></div>
+                                            <div class="bi-star"></div>
+                                        </div>
+                                        <!-- Product price-->
+                                        기전주임 채용<br>(경력 3년~)
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <img class="card-img-top" src="./img/삼성창조캠퍼스.JPG" alt="..." />
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <p class="fw-bolder">대구광역시 북구 삼성창조캠퍼스</p>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-half"></div>
+                                        </div>
+                                        미화팀장 채용<br>(경력 7년~)
+                                    </div>
+                                </div>
+
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Hot</div>
+                                <img class="card-img-top" src="./img/올림픽공원.JPG" alt="..." />
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <p class="fw-bolder">서울특별시 송파구 올림픽공원</p>
+                                        <div class="d-flex justify-content-center small text-warning mb-2">
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-fill"></div>
+                                            <div class="bi-star-half"></div>
+                                        </div>
+                                        시설관리총괄 채용<br>(경력 8년~)
+                                    </div>
+                                </div>
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">상세보기</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider__btn slider__btn--left">&#10094;</button>
+                    <button class="slider__btn slider__btn--right">&#10095;</button>
+                    <div class="dots"></div>
+                </div>
+            </div>
+        </section>
+        <footer class="py-5 bg-dark">
+            <div class = "text-center container" style="margin-bottom: 30px">
+                <p class="text-center text-white" style="font-size: large; margin-right: 150px"><a class="m-0" href="#!">FAQ</a></p>
+                <p class="text-center text-white" style="font-size: large;"><a class="m-0" href="#!">문의하기</a></p>
+            </div><br>
+            <div class="text-center container">
+                <div class="container">
+                    <div class="container"><li class="m-0 text-center text-white" style='list-style-type: none'>&copy; TownManager, Inc. 2022 All rights reserved.</li></div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./js/slidebar.js"></script>
+    </body>
+</html>
